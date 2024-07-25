@@ -37,7 +37,7 @@ public class Game {
         nextPlayerMoveIndex=idx;
     }
     public void validatePlayer(List<Player> players) throws PlayerException {
-        if(players.size()!=1)
+        if(players.size()!=2)
         {
             throw new PlayerException("There must be two player");
         }
@@ -63,7 +63,7 @@ public class Game {
 
       for(GameWinningStrategy winningStrategy:winningStrategies)
       {
-          winningStrategy.checkWinner(players);
+          this.winner=winningStrategy.checkWinner(players);
       }
   }
   private void takeTurn(Player attacker, Player defender) {
